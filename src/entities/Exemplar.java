@@ -27,7 +27,7 @@ public class Exemplar {
 		this.codigoLivro = id;
 	}
 	
-	public void setCodigoExemplar(int id) {
+	public void setIdExemplar(int id) {
 		this.idExemplar = id;
 	}
 
