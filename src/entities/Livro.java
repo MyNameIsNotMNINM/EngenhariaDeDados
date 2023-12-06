@@ -17,27 +17,27 @@ public class Livro {
     this.ano = ano;
   }
 
-  public String getCodigo() {
+  public String getCodigoLivro() {
     return this.codigo;
   }
 
-  public String getTitulo() {
+  public String getTituloLivro() {
     return this.titulo;
   }
 
-  public String getEditora() {
+  public String getEditoraLivro() {
     return this.editora;
   }
 
-  public String getAutores() {
+  public String getAutoresLivro() {
     return this.autores;
   }
 
-  public int getEdicao() {
+  public int getEdicaoLivro() {
     return this.edicao;
   }
 
-  public int getAno() {
+  public int getAnoLivro() {
     return this.ano;
   }
 
@@ -63,11 +63,5 @@ public class Livro {
 
   public void setAno(int ano) {
     this.ano = ano;
-  }
-
-  @Override
-  public String toString() {
-    return "Livro [codigo=" + codigo + ", titulo=" + titulo + ", editora=" + editora + ", autores=" + autores
-        + ", edicao=" + edicao + ", ano=" + ano + "]";
   }
 }
