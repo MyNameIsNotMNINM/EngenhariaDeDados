@@ -1,4 +1,4 @@
-package entities;
+package main;
 import java.util.HashMap;
 
 import commands.*;
