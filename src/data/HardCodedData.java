@@ -5,19 +5,19 @@ import java.util.List;
 import entities.*;
 import java.util.ArrayList;
 
-    public class HardCodedData {
-        public List<Livro> getLivros(){
-            List<Livro> livros = new ArrayList<Livro>();
-            livros.add(new Livro("100","Engenharia de Software","Addison Wesley","Ian Sommervile", "6ª", "2000"));
-            livros.add(new Livro("101","UML - Guia do Usuário","Campus", "Grady Booch, James Rumbaugh, Ivar Jacobson","7ª", "2000"));
-            livros.add(new Livro("200","Code Complete","Microsoft Press","Steve McConnell", "2ª", "2014"));
-            livros.add(new Livro("201","Agile Software Development, Principles, Patterns, and Practices","Prentice Hall","Robert Martin", "1ª", "2002"));
-            livros.add(new Livro("300","Refactoring: Improving the Design of Existing Code","Addison Wesley Professional","Martin Fowler ", "1ª", "1999"));
-            livros.add(new Livro("301","Software Metrics: A Rigorous and Practical Approach","CRC Press", "Norman Fenton, James Bieman", "3ª", "2014"));
-            livros.add(new Livro("401","UML Distilled: A Brief Guide to the Standard Object Modeling Language","Addison Wesley Professional","Martin Fowler ", "3ª", "2003"));
-            return livros; 
+public class HardCodedData {
+    public List<Livro> getLivros(){
+        List<Livro> livros = new ArrayList<Livro>();
+        livros.add(new Livro("100","Engenharia de Software","Addison Wesley","Ian Sommervile", "6ª", "2000"));
+        livros.add(new Livro("101","UML - Guia do Usuário","Campus", "Grady Booch, James Rumbaugh, Ivar Jacobson","7ª", "2000"));
+        livros.add(new Livro("200","Code Complete","Microsoft Press","Steve McConnell", "2ª", "2014"));
+        livros.add(new Livro("201","Agile Software Development, Principles, Patterns, and Practices","Prentice Hall","Robert Martin", "1ª", "2002"));
+        livros.add(new Livro("300","Refactoring: Improving the Design of Existing Code","Addison Wesley Professional","Martin Fowler ", "1ª", "1999"));
+        livros.add(new Livro("301","Software Metrics: A Rigorous and Practical Approach","CRC Press", "Norman Fenton, James Bieman", "3ª", "2014"));
+        livros.add(new Livro("401","UML Distilled: A Brief Guide to the Standard Object Modeling Language","Addison Wesley Professional","Martin Fowler ", "3ª", "2003"));
+        return livros; 
 
-        }
+    }
 
     public List<Exemplar> getExemplares(){
         List<Exemplar> exemplares = new ArrayList<Exemplar>();
