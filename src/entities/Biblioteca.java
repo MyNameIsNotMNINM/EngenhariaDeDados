@@ -3,13 +3,15 @@ package entities;
 import java.util.ArrayList;
 
 public class Biblioteca {
-    private ArrayList<Exemplar> listaDeExemplares = new ArrayList<Exemplar>();
-    private ArrayList<Livro> Livros = new ArrayList<Livro>();
-    private ArrayList<Usuario> Usuarios = new ArrayList<Usuario>();
+    private ArrayList<Exemplar> listaExemplares;
+    private ArrayList<Livro> livros;
+    private ArrayList<Usuario> usuarios;
 
     public Biblioteca() {
-
+        this.listaExemplares = new ArrayList<Exemplar>();
+        this.livros = new ArrayList<Livro>();
+        this.usuarios = new ArrayList<Usuario>();
     }
 
-    
+
 }
