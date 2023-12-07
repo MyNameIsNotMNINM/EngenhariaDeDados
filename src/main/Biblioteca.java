@@ -44,13 +44,11 @@ public class Biblioteca {
     }
 
     public void emprestarLivro(String codigoLivro, String matriculaUsuario) {
-        // Logic to handle book lending
-        // This might involve checking if the book and user exist, updating book status, etc.
+        
     }
 
     public void devolverLivro(String codigoLivro) {
-        // Logic to handle book return
-        // This might involve updating book status, removing it from the user's list, etc.
+        
     }
 
     public List<Livro> obterLivrosDisponiveis() {
@@ -68,12 +66,7 @@ public class Biblioteca {
     }
 
     public List<Usuario> obterUsuariosComLivrosEmprestados() {
-        // Logic to retrieve users with borrowed books
-        // This might involve filtering the list of users based on their borrowed books
-
 
         return usuarios;
     }
-
-    // Additional facade methods for interacting with the subsystem...
 }
