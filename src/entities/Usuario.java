@@ -28,8 +28,8 @@ public class Usuario {
         this.isDevedor = isDevedor;
     }
 
-    public void getIsDevedor() {
-        return this.isDevedor;
+    public boolean getIsDevedor() {
+        return isDevedor;
     }
 
     public void setNome(String nome) {

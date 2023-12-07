@@ -5,10 +5,10 @@ public class Livro {
 	private String titulo;
 	private String editora;
 	private String autores;
-	private int edicao; 
-	private int ano;
+	private String edicao; 
+	private String ano;
 
-  public Livro(String codigo, String titulo, String editora, String autores, int edicao, int ano) {
+  public Livro(String codigo, String titulo, String editora, String autores, String edicao, String ano) {
     this.codigo = codigo;
     this.titulo = titulo;
     this.editora = editora;
@@ -33,11 +33,11 @@ public class Livro {
     return this.autores;
   }
 
-  public int getEdicaoLivro() {
+  public String getEdicaoLivro() {
     return this.edicao;
   }
 
-  public int getAnoLivro() {
+  public String getAnoLivro() {
     return this.ano;
   }
 
@@ -57,11 +57,11 @@ public class Livro {
     this.autores = autores;
   }
 
-  public void setEdicao(int edicao) {
+  public void setEdicao(String edicao) {
     this.edicao = edicao;
   }
 
-  public void setAno(int ano) {
+  public void setAno(String ano) {
     this.ano = ano;
   }
 }
