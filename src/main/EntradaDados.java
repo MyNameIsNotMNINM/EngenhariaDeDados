@@ -2,28 +2,29 @@ package main;
 import java.util.HashMap;
 
 import commands.*;
+import interfaces.Command;
 
 public class EntradaDados {
 	private HashMap<String,Object> comando = new HashMap<String,Object>();
 
-  public EntradaDados(Comando comando, String[] args) {
+  public EntradaDados(Command comando, String[] args) {
     listaComandos();
   }
 
   // Lista de comandos possíveis
   private void listaComandos() {
-    this.comando.put("emp", new EmprestimoComando());
-    this.comando.put("dev", new DevolverComando());
-    this.comando.put("res", new ReservaComando());
-    this.comando.put("obs", new ObservadorComando());
-    this.comando.put("liv", new LivroComando());
-    this.comando.put("usu", new UsuarioComando());
-    this.comando.put("ntf", new NotificacaoComando());
+    this.comando.put("emp", new EmprestimoCommand());
+    this.comando.put("dev", new DevolverCommand());
+    this.comando.put("res", new ReservaCommand());
+    this.comando.put("obs", new ObservadorCommand());
+    this.comando.put("liv", new LivroCommand());
+    this.comando.put("usu", new UsuarioCommand());
+    this.comando.put("ntf", new NotificacaoCommand());
   }
 
   // Executar comando
   public void execute(String[] args) {
-    Comando cmd = (Comando) this.comando.get(args[0]);
+    Command cmd = (Command) this.comando.get(args[0]);
     cmd.executar(args);
   }
 }
