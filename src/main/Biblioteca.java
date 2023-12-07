@@ -10,7 +10,7 @@ import java.util.List;
 
 public class Biblioteca {
     private static Biblioteca instance;
-    private ArrayList<Exemplar> listaDeExemplares = new ArrayList<>();
+    private ArrayList<Exemplar> exemplares = new ArrayList<>();
     private ArrayList<Livro> livros = new ArrayList<>();
     private ArrayList<Usuario> usuarios = new ArrayList<>();
     HardCodedData hardCodedData = new HardCodedData();
@@ -35,7 +35,7 @@ public class Biblioteca {
 
     private void carregarExemplar() {
         List<Exemplar> exemplarList = hardCodedData.getExemplares();
-        listaDeExemplares.addAll(exemplarList);
+        exemplares.addAll(exemplarList);
     }
 
     private void carregarUsuarios() {
@@ -52,17 +52,37 @@ public class Biblioteca {
     }
 
     public List<Livro> obterLivrosDisponiveis() {
-        List<Livro> livros = new ArrayList<>();
-        for (Exemplar exemplar : listaDeExemplares) {
+        Set<Livro> livros = new HashSet<Livro> ();
+        for (Exemplar exemplar : exemplares) {
             if (exemplar.isDisponivel()) {
-                for (Livro livro : this.livros) {
-                    if (exemplar.getCodigoLivro().equals(livro.getCodigoLivro())) {
-                        livros.add(livro);
-                    }
-                }
+                livros.add(getLivroByCodigo(exemplar.codigoLivro));
             }
         }
         return livros;
+    }
+
+    public Livro getLivroByCodigo(int codigo){
+        for (Livro livro : livros) {
+            if(livro.codigo == codigo)
+                return livro;
+        }
+        return null;
+    }
+
+    public Usuario getUsuarioByCodigo(int codigo){
+        for (Usuario user : usuarios) {
+            if(user.codigo == codigo)
+                return user;
+        }
+        return null;
+    }
+
+    public Exemplar getExemplarByCodigo(int codigo){
+        for (Exemplar exemplar : exemplares) {
+            if(exemplar.codigo == codigo)
+                return exemplar;
+        }
+        return null;
     }
 
     public List<Usuario> obterUsuariosComLivrosEmprestados() {
