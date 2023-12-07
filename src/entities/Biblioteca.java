@@ -11,9 +11,5 @@ public class Biblioteca {
 
     }
 
-    public int adicionarExemplar(Exemplar exemplar){
-        exemplar.setIdExemplar(listaDeExemplares.size());
-        listaDeExemplares.add(exemplar);
-        return exemplar.getIdExemplar();
-    }
+    
 }

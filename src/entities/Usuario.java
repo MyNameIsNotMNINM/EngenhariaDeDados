@@ -40,6 +40,11 @@ public class Usuario {
         return this.notificationCount;
     }
 
+    public int setNumeroDeNotificacoes(){
+        return this.notificationCount;
+    }
+
+
     public int getDiasDeEmprestimo() {
         return this.diasDeEmprestimo;
     }

@@ -1,5 +1,5 @@
 class BookNotification implements INotificationBroker {
-    private int notificationCount;
+    private int bookID;
     private List<Observer> observers = new ArrayList<>();
 
     @Override
@@ -15,12 +15,12 @@ class BookNotification implements INotificationBroker {
     @Override
     public void notifyObservers() {
         for (Observer observer : observers) {
-            observer.update(notificationCount);
+            observer.update(bookID);
         }
     }
 
-    public void setState(int notificationCount) {
-        this.notificationCount = notificationCount;
+    public void setState(int bookID) {
+        this.bookID = bookID;
         notifyObservers();
     }
 }
