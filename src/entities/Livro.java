@@ -1,14 +1,14 @@
 package entities;
 
 public class Livro {
-  private String codigo;
+  private int codigo;
 	private String titulo;
 	private String editora;
 	private String autores;
 	private String edicao; 
 	private String ano;
 
-  public Livro(String codigo, String titulo, String editora, String autores, String edicao, String ano) {
+  public Livro(int codigo, String titulo, String editora, String autores, String edicao, String ano) {
     this.codigo = codigo;
     this.titulo = titulo;
     this.editora = editora;
@@ -17,7 +17,7 @@ public class Livro {
     this.ano = ano;
   }
 
-  public String getCodigoLivro() {
+  public int getCodigoLivro() {
     return this.codigo;
   }
 
@@ -41,7 +41,7 @@ public class Livro {
     return this.ano;
   }
 
-  public void setCodigo(String codigo) {
+  public void setCodigo(int codigo) {
     this.codigo = codigo;
   }
 
