@@ -9,6 +9,10 @@ public class CommandInvoker implements Command {
     this.command = command;
   }
 
+  public void setCommand(Command command) {
+    this.command = command;
+  }
+
   public void executar(String[] args) {
     this.command.executar(args);
   }
