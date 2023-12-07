@@ -1,21 +1,21 @@
 package entities;
 
 public class Exemplar {
-	private int idExemplar;
+	private String idExemplar;
 	private String codigoLivro;
 	private boolean disponivel;
 	
-	public Exemplar(int idExemplar, Livro livro) {
-    this.idExemplar = idExemplar;
-		this.codigoLivro = livro.getCodigoLivro();
-    this.disponivel = true;
+	public Exemplar(String idExemplar, String livro, boolean disponivel) {
+    this.setCodigoLivro(idExemplar);
+		this.setIdExemplar(livro);
+		this.setDisponivel(disponivel);
 	}
 	
 	public String getCodigoLivro() {
 		return codigoLivro;
 	}
 
-	public int getIdExemplar() {
+	public String getIdExemplar() {
 		return idExemplar;
 	}
 
@@ -27,7 +27,7 @@ public class Exemplar {
 		this.codigoLivro = id;
 	}
 	
-	public void setIdExemplar(int id) {
+	public void setIdExemplar(String id) {
 		this.idExemplar = id;
 	}
 
