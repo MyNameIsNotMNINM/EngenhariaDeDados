@@ -43,11 +43,13 @@ public class Biblioteca {
         usuarios.addAll(usuarioList);
     }
 
-    public void emprestarLivro(String codigoLivro, String matriculaUsuario) {
-        
+    public void emprestarLivro(int codigoLivro, int matriculaUsuario) {
+        Usuario user = getUsuarioByCodigo(matriculaUsuario);
+        Livro livro = getLivroByCodigo(codigoLivro);
+
     }
 
-    public void devolverLivro(String codigoLivro) {
+    public void devolverLivro(int codigoLivro) {
         
     }
 
