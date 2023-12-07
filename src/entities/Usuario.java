@@ -1,27 +1,27 @@
 package entities;
 
 public class Usuario {
-    private int codigo;
+    private int codigoUsuario;
     private String nome;
     private boolean isDevedor;
     protected int diasDeEmprestimo;
     private int notificationCount;
 
-    public Usuario(int codigo, String nome) {
-        this.codigo = codigo;
+    public Usuario(int codigoUsuario, String nome) {
+        this.codigoUsuario = codigoUsuario;
         this.nome = nome;
     }
 
-    public int getCodigo() {
-        return this.codigo;
+    public int getCodigoUsuario() {
+        return this.codigoUsuario;
     }
 
     public String getNome() {
         return this.nome;
     }
 
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
+    public void setCodigoUsuario(int codigoUsuario) {
+        this.codigoUsuario = codigoUsuario;
     }
 
     public void setIsDevedor(boolean isDevedor) {

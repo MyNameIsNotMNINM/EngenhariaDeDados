@@ -56,7 +56,7 @@ public class Biblioteca {
         for (Exemplar exemplar : listaDeExemplares) {
             if (exemplar.isDisponivel()) {
                 for (Livro livro : this.livros) {
-                    if (exemplar.getCodigoLivro().equals(livro.getCodigoLivro())) {
+                    if (exemplar.getCodigoLivro() == livro.getCodigoLivro()) {
                         livros.add(livro);
                     }
                 }
