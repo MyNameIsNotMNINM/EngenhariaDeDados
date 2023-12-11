@@ -1,10 +1,12 @@
 package commands;
 
 import interfaces.Command;
+import main.Biblioteca;
 
 public class NotificacaoCommand implements Command{
-  @Override
-  public void executar(String[] args) {
-    System.out.println("Executando o comando para notificar um usuário");
-  }
+  public NotificacaoCommand() {};
+
+	public void executar(int[] arg) {
+		Biblioteca.getInstance().notificar(arg[0]);
+	}
 }

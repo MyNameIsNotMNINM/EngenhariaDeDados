@@ -1,10 +1,12 @@
 package commands;
 
 import interfaces.Command;
+import main.Biblioteca;
 
 public class ReservaCommand implements Command{
-  @Override
-  public void executar(String[] args) {
-    System.out.println("Executando o comando para reservar um livro");
+  public ReservaCommand() {};
+
+  public void executar(int[] arg) {
+    Biblioteca.getInstance().reservarLivro(arg[0], arg[1]);
   }
 }

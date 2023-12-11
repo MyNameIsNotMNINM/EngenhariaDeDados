@@ -1,10 +1,12 @@
 package commands;
 
 import interfaces.Command;
+import main.Biblioteca;
 
 public class ObservadorCommand implements Command {
-  @Override
-  public void executar(String[] args) {
-    System.out.println("Executando o comando para observar um livro");
-  }
+  public ObservadorCommand() {};
+
+	public void executar(int[] arg) {
+		Biblioteca.getInstance().gerarObservador(arg[0], arg[1]);
+	}
 }

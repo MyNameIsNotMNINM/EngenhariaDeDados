@@ -2,9 +2,12 @@ package commands;
 
 import interfaces.Command;
 
+import main.Biblioteca;
+
 public class LivroCommand implements Command {
-  @Override
-  public void executar(String[] args) {
-    System.out.println("Executando o comando para manipular um livro");
+  public LivroCommand() {};
+
+  public void executar(int[] arg) {
+    Biblioteca.getInstance().consultarLivro(arg[0]);
   }
 }
