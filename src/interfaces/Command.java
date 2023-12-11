@@ -1,5 +1,5 @@
 package interfaces;
 
 public interface Command {
-    public void executar(String[] args);
+    public void executar(int[] arg);
 }
