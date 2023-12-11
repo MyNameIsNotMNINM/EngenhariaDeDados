@@ -1,7 +1,7 @@
 package interfaces;
 
 public interface INotificacao {
-    public void registrarObservador(Observer observador);
-    public void removerObservador(Observer observador);
-    public void notificarObservadores();
+    void registrarObservador(Observer observador);
+    void removerObservador(Observer observador);
+    void notificarObservadores();
 }

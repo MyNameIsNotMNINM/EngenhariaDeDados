@@ -1,8 +1,7 @@
 package entities;
 
-import java.util.ArrayList;
-
 import emprestimo.Emprestimo;
+import java.util.ArrayList;
 
 public class Usuario {
     private int codigoUsuario;
@@ -53,8 +52,8 @@ public class Usuario {
     }
 
     public ArrayList<Reserva> getReservas() {
-		return this.reservas;
-	}
+        return this.reservas;
+    }
 
     public void adicionarReserva(Reserva reserva) {
         this.reservas.add(reserva);
@@ -67,13 +66,9 @@ public class Usuario {
             this.quantidadeReserva--;
         }
     }
-	
-	public boolean limiteReservas() {
-		return this.quantidadeReserva == 3;
-	}
 
-    public void listarReservas() {
-        //
+    public boolean limiteReservas() {
+        return this.quantidadeReserva == 3;
     }
 
     public ArrayList<Emprestimo> getEmprestimos() {

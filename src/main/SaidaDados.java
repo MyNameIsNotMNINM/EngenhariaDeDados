@@ -1,7 +1,7 @@
 package main;
 
-import entities.*;
 import emprestimo.Emprestimo;
+import entities.*;
 import interfaces.IUsuario;
 
 public class SaidaDados {
@@ -34,7 +34,8 @@ public class SaidaDados {
 
     private void imprimirInformacoesReserva(Reserva reserva) {
         System.out.println("Reservado por: " + this.sistema.getUsuarioByCodigo(reserva.getCodigoUsuario()).getNome());
-        System.out.println("Título do livro: " + this.sistema.getLivroByCodigo(reserva.getCodigoLivro()).getTituloLivro());
+        System.out.println(
+            "Título do livro: " + this.sistema.getLivroByCodigo(reserva.getCodigoLivro()).getTituloLivro());
         System.out.println("Data da reserva: " + reserva.getData());
         System.out.println("-");
     }
@@ -90,10 +91,11 @@ public class SaidaDados {
 
     private void imprimirInformacoesEmprestimo(Emprestimo emprestimo) {
         System.out.println("Emprestado por: " + emprestimo.getUsuario().getNome());
-        System.out.println("Título do livro: " + this.sistema.getLivroByCodigo(emprestimo.getCodigoLivro()).getTituloLivro());
+        System.out.println(
+            "Título do livro: " + this.sistema.getLivroByCodigo(emprestimo.getCodigoLivro()).getTituloLivro());
         System.out.println("Data do empréstimo: " + emprestimo.getDataEmprestimo());
         if (emprestimo.isDevolvido()) {
-        System.out.println("Data da devolução: " + emprestimo.getDataDevolucao());
+            System.out.println("Data da devolução: " + emprestimo.getDataDevolucao());
         } else {
             System.out.println("Data da devolução prevista: " + emprestimo.getDataDevolucao());
         }

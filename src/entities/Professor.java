@@ -13,11 +13,11 @@ public class Professor extends Usuario implements IUsuario, Observer {
 
     @Override
     public void update() {
-      this.notificacoes += 1;
+        this.notificacoes += 1;
     }
 
-      public int getNotificacoes() {
-      return this.notificacoes;
+    public int getNotificacoes() {
+        return this.notificacoes;
     }
 
     @Override

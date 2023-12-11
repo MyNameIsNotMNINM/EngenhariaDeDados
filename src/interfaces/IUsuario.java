@@ -1,20 +1,19 @@
 package interfaces;
 
-import java.util.ArrayList;
-
-import entities.Reserva;
 import emprestimo.Emprestimo;
+import entities.Reserva;
+import java.util.ArrayList;
 
 public interface IUsuario {
     int getCodigoUsuario();
     void setCodigoUsuario(int codigoUsuario);
-    
+
     String getNome();
     void setNome(String nome);
 
     void setIsDevedor(boolean isDevedor);
     boolean getIsDevedor();
-    
+
     int getDiasDeEmprestimo();
     void setDiasDeEmprestimo(int diasDeEmprestimo);
 
@@ -28,4 +27,4 @@ public interface IUsuario {
     void removerEmprestimo(Emprestimo emprestimo);
     int getLimiteEmprestimos();
     ArrayList<Emprestimo> getEmprestimos();
-  }
+}

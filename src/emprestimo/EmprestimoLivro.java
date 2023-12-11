@@ -6,8 +6,8 @@ import interfaces.IOperacaoEmprestimo;
 import interfaces.IUsuario;
 import main.Sistema;
 
-public class EmprestimoLivro implements IOperacaoEmprestimo{
-  private Sistema sistema;
+public class EmprestimoLivro implements IOperacaoEmprestimo {
+    private Sistema sistema;
 
     public EmprestimoLivro(Sistema sistema) {
         this.sistema = sistema;
@@ -25,14 +25,16 @@ public class EmprestimoLivro implements IOperacaoEmprestimo{
                 usuario.adicionarEmprestimo(emprestimo);
                 livro.adicionarEmprestimo(emprestimo);
                 exemplar.setDisponivel(false);
-                // Se existe reserva, remove a reserva
                 if (livro.getReservas().size() > 0) {
                     livro.removerReserva(livro.getReservas().get(0));
                     usuario.removerReserva(usuario.getReservas().get(0));
                 }
-                System.out.println("Nome: " + usuario.getNome() + " - Título do livro: " + livro.getTituloLivro() + " Empréstimo efetuado com sucesso.");
+                System.out.println("Nome: " + usuario.getNome()
+                    + " - Título do livro: " + livro.getTituloLivro()
+                    + " Empréstimo efetuado com sucesso.");
             } else {
-                System.out.println("O usuário " + usuario.getNome() + " já alcançou o limite de empréstimos.");
+                System.out.println("O usuário " + usuario.getNome()
+                    + " já alcançou o limite de empréstimos.");
             }
         } else {
             System.out.println("Não há exemplares disponíveis.");

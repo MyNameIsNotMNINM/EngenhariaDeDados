@@ -1,5 +1,5 @@
 package interfaces;
 
 public interface IOperacaoEmprestimo {
-  void executarOperacao(int codigoLivro, int codigoUsuario);
+    void executarOperacao(int codigoLivro, int codigoUsuario);
 }

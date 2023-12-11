@@ -3,7 +3,6 @@ package entities;
 import interfaces.IUsuario;
 
 public abstract class Aluno extends Usuario implements IUsuario {
-
     public Aluno(int codigoUsuario, String nome, int diasDeEmprestimo) {
         super(codigoUsuario, nome);
         super.diasDeEmprestimo = diasDeEmprestimo;
