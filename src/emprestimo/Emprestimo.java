@@ -1,41 +1,63 @@
-package entities;
+package emprestimo;
 
-import java.sql.Date;
+import java.time.LocalDate;
+
+import entities.Exemplar;
+
+import interfaces.IUsuario;
 
 public class Emprestimo {
-    private Usuario user;
-    private Date dataEmprestimo;
-    private Exemplar exemplar;
-    
-    public Emprestimo(Usuario user, Date dataEmprestimo, Exemplar exemplar){
-        this.user = user;
-        this.dataEmprestimo = dataEmprestimo;
-        this.exemplar = exemplar;
+    private IUsuario usuario;
+	private int codigoUsuario;
+	private int codigoExemplar;
+	private int codigoLivro;
+	private LocalDate dataEmprestimo;
+	private LocalDate dataDevolucao;
+	private boolean devolvido;
+	
+	public Emprestimo(IUsuario usuario, Exemplar exemplar) {
+        this.usuario = usuario;
+		this.codigoUsuario = usuario.getCodigoUsuario();
+		this.codigoExemplar = exemplar.getCodigoExemplar();
+		this.codigoLivro = exemplar.getCodigoLivro();
+		this.dataEmprestimo = LocalDate.now();
+		this.dataDevolucao = LocalDate.now().plusDays(usuario.getDiasDeEmprestimo());
+		this.devolvido = false;
+	}
+
+    public IUsuario getUsuario() {
+        return this.usuario;
     }
 
-    public Usuario getUser() {
-        return user;
+    public int getCodigoUsuario() {
+        return codigoUsuario;
     }
-    
-    public void setUser(Usuario user) {
-        this.user = user;
+
+    public int getCodigoExemplar() {
+        return codigoExemplar;
     }
-    
-    public Exemplar getExemplar() {
-        return exemplar;
+
+    public int getCodigoLivro() {
+        return codigoLivro;
     }
-    
-    public void setExemplar(Exemplar exemplar) {
-        this.exemplar = exemplar;
-    }
-    
-    public Date getDataEmprestimo() {
+
+    public LocalDate getDataEmprestimo() {
         return dataEmprestimo;
     }
-    
-    public void setDataEmprestimo(Date dataEmprestimo) {
-        this.dataEmprestimo = dataEmprestimo;
+
+    public LocalDate getDataDevolucao() {
+        return dataDevolucao;
     }
 
-    
+    public boolean isDevolvido() {
+        return devolvido;
+    }
+
+    public void setDataDevolucao(LocalDate dataDevolucao) {
+        this.dataDevolucao = dataDevolucao;
+    }
+
+    public void setDevolvido(boolean devolvido) {
+        this.devolvido = devolvido;
+    }
 }
