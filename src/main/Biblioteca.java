@@ -1,49 +1,16 @@
 package main;
 
-import entities.Exemplar;
-import entities.Livro;
-import entities.Usuario;
-import data.HardCodedData;
-
-import java.util.ArrayList;
-import java.util.List;
+import entities.*;
+import interfaces.IUsuario;
 
 public class Biblioteca {
     private static Biblioteca instance;
-    private ArrayList<Exemplar> exemplares = new ArrayList<>();
-    private ArrayList<Livro> livros = new ArrayList<>();
-    private ArrayList<Usuario> usuarios = new ArrayList<>();
-    HardCodedData hardCodedData = new HardCodedData();
+    private Sistema sistema;
+    private SaidaDados saidaDados;
 
     public Biblioteca() {
-        carregarLivro();
-        carregarExemplar();
-        carregarUsuarios();
-    }
-
-    
-    public Livro getLivroByCodigo(int codigo){
-        for (Livro livro : this.livros) {
-            if(livro.codigo == codigo)
-                return livro;
-        }
-        return null;
-    }
-
-    public Usuario getUsuarioByCodigo(int codigo){
-        for (Usuario user : this.usuarios) {
-            if(user.codigo == codigo)
-                return user;
-        }
-        return null;
-    }
-
-    public Exemplar getExemplarByCodigo(int codigo){
-        for (Exemplar exemplar : this.exemplares) {
-            if(exemplar.codigo == codigo)
-                return exemplar;
-        }
-        return null;
+        this.sistema = Sistema.getInstance();
+        this.saidaDados = new SaidaDados(sistema);
     }
 
     public static Biblioteca getInstance() {
@@ -53,51 +20,48 @@ public class Biblioteca {
 		return instance;
 	}
 
-    public void GetAvailableExemplar(Livro livro){
-        for (Exemplar exemplar : this.exemplares) {
-            if (exemplar.isDisponivel() && exemplar.codigoLivro == livro.codigo) {
-                return exemplar;
-            }
-        }
+    public void emprestarLivro(int codigoLivro, int codigoUsuario) {
+        this.sistema.adicionarEmprestimo(codigoLivro, codigoUsuario);
     }
 
-    private void carregarLivro() {
-        List<Livro> livroList = hardCodedData.getLivros();
-        this.livros.addAll(livroList);
+    public void devolverLivro(int codigoLivro, int codigoUsuario) {
+        this.sistema.devolverLivro(codigoLivro, codigoUsuario);
     }
 
-    private void carregarExemplar() {
-        List<Exemplar> exemplarList = hardCodedData.getExemplares();
-        this.exemplares.addAll(exemplarList);
+    public void gerarObservador(int codigoLivro, int codigoUsuario) {
+        Livro livro = this.sistema.getLivroByCodigo(codigoLivro);
+        IUsuario usuario = this.sistema.getUsuarioByCodigo(codigoUsuario);
+        livro.registrarObservador((Professor) usuario);
+        System.out.println("Observador gerado com sucesso.");
     }
 
-    private void carregarUsuarios() {
-        List<Usuario> usuarioList = hardCodedData.getAlunos();
-        this.usuarios.addAll(usuarioList);
+    public void notificar(int codigoUsuario) {
+        IUsuario usuario = this.sistema.getUsuarioByCodigo(codigoUsuario);
+        System.out.println("Quantidade de vezes que o professor foi notificado: " + ((Professor) usuario).getNotificacoes());
     }
 
-    public void emprestarLivro(int codigoLivro, int matriculaUsuario) {
-        Usuario user = getUsuarioByCodigo(matriculaUsuario);
-        Livro livro = getLivroByCodigo(codigoLivro);
-        
+    public void reservarLivro(int codigoLivro, int codigoUsuario) {
+        Livro livro = this.sistema.getLivroByCodigo(codigoLivro);
+        IUsuario usuario = this.sistema.getUsuarioByCodigo(codigoUsuario);
+
+        if(!usuario.limiteReservas()) {
+            Reserva reserva = new Reserva(codigoUsuario, codigoLivro);
+            usuario.adicionarReserva(reserva);
+            livro.adicionarReserva(reserva);
+            System.out.println("Nome: " + usuario.getNome() + " - Título do livro: " + livro.getTituloLivro() + " Reserva efetuada com sucesso.");
+		}
+		else {
+			System.out.println("O usuario " + usuario.getNome() + " já alcançou o limite de reservas");
+		}
     }
 
-    public void devolverLivro(int codigoLivro) {
-        
+    public void consultarLivro(int codigoLivro) {
+        Livro livro = this.sistema.getLivroByCodigo(codigoLivro);
+        saidaDados.imprimirInformacoesLivro(livro);
     }
 
-    public List<Livro> obterLivrosDisponiveis() {
-        Set<Livro> livros = new HashSet<Livro> ();
-        for (Exemplar exemplar : this.exemplares) {
-            if (exemplar.isDisponivel()) {
-                livros.add(getLivroByCodigo(exemplar.codigoLivro));
-            }
-        }
-        return livros;
-    }
-
-    public List<Usuario> obterUsuariosComLivrosEmprestados() {
-
-        return usuarios;
+    public void consultarUsuario(int codigoUsuario) {
+        IUsuario usuario = this.sistema.getUsuarioByCodigo(codigoUsuario);
+        saidaDados.imprimirInformacoesUsuario(usuario);
     }
 }

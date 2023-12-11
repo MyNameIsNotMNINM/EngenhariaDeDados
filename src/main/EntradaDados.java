@@ -7,7 +7,7 @@ import interfaces.Command;
 public class EntradaDados {
 	private HashMap<String,Object> comando = new HashMap<String,Object>();
 
-  public EntradaDados(Command comando, String[] args) {
+  public EntradaDados() {
     listaComandos();
   }
 
@@ -20,11 +20,12 @@ public class EntradaDados {
     this.comando.put("liv", new LivroCommand());
     this.comando.put("usu", new UsuarioCommand());
     this.comando.put("ntf", new NotificacaoCommand());
+    this.comando.put("sai", new SairCommand());
   }
 
   // Executar comando
-  public void execute(String[] args) {
-    Command cmd = (Command) this.comando.get(args[0]);
-    cmd.executar(args);
+  public void executar(String cmd, int[] arg) {
+    Command command = (Command) this.comando.get(cmd);
+    command.executar(arg);
   }
 }
