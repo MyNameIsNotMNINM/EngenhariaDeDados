@@ -1,11 +1,11 @@
 package entities;
 
 public class Exemplar {
-	private int codigoExemplar;
 	private int codigoLivro;
+	private int codigoExemplar;
 	private boolean disponivel;
 	
-	public Exemplar(int codigoExemplar, int codigoLivro, boolean disponivel) {
+	public Exemplar(int codigoLivro, int codigoExemplar, boolean disponivel) {
     this.setCodigoLivro(codigoLivro);
 		this.setCodigoExemplar(codigoExemplar);
 		this.setDisponivel(disponivel);

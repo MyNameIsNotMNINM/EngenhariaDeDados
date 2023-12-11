@@ -1,10 +1,13 @@
 package entities;
 
-import interfaces.IUsuario;
+public class AlunoPosGraduacao extends Aluno {
 
-public class AlunoPosGraduacao extends Usuario implements IUsuario {
     public AlunoPosGraduacao(int codigoUsuario, String nome) {
-        super(codigoUsuario, nome);
-        super.diasDeEmprestimo = 4;
+        super(codigoUsuario, nome, 4);
+    }
+
+    @Override
+    protected int limiteEmprestimos() {
+        return 4;
     }
 }
