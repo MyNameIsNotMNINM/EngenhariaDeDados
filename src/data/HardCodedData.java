@@ -1,13 +1,13 @@
 package data;
 
-import java.util.List;
-
-import entities.*;
 import java.util.ArrayList;
 
+import entities.*;
+import interfaces.IUsuario;
+
 public class HardCodedData {
-    public List<Livro> getLivros(){
-        List<Livro> livros = new ArrayList<Livro>();
+    public ArrayList<Livro> getLivros(){
+        ArrayList<Livro> livros = new ArrayList<Livro>();
         livros.add(new Livro(100,"Engenharia de Software","Addison Wesley","Ian Sommervile", "6ª", 2000));
         livros.add(new Livro(101,"UML - Guia do Usuário","Campus", "Grady Booch, James Rumbaugh, Ivar Jacobson","7ª", 2000));
         livros.add(new Livro(200,"Code Complete","Microsoft Press","Steve McConnell", "2ª", 2014));
@@ -16,11 +16,10 @@ public class HardCodedData {
         livros.add(new Livro(301,"Software Metrics: A Rigorous and Practical Approach","CRC Press", "Norman Fenton, James Bieman", "3ª", 2014));
         livros.add(new Livro(401,"UML Distilled: A Brief Guide to the Standard Object Modeling Language","Addison Wesley Professional","Martin Fowler ", "3ª", 2003));
         return livros; 
-
     }
 
-    public List<Exemplar> getExemplares(){
-        List<Exemplar> exemplares = new ArrayList<Exemplar>();
+    public ArrayList<Exemplar> getExemplares(){
+        ArrayList<Exemplar> exemplares = new ArrayList<Exemplar>();
 
         exemplares.add(new Exemplar(100, 1, true));
         exemplares.add(new Exemplar(100, 2, true));
@@ -31,11 +30,11 @@ public class HardCodedData {
         exemplares.add(new Exemplar(300, 7, true));
         exemplares.add(new Exemplar(400, 8, true));
         exemplares.add(new Exemplar(400, 9, true));
-        return  exemplares;
+        return exemplares;
     }
 
-    public List<Usuario> getAlunos() {
-        List<Usuario> alunos = new ArrayList<Usuario>();
+    public ArrayList<IUsuario> getUsuarios() {
+        ArrayList<IUsuario> alunos = new ArrayList<IUsuario>();
 
         alunos.add(new AlunoGraduacao(123, "João da Silva"));
         alunos.add(new AlunoPosGraduacao(456, "Luiz Fernando Rodrigues"));
